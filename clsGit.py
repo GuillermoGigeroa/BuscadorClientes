@@ -1,5 +1,3 @@
-from ruta import Variables
-
 class Git():
     def __init__(self, rutaIngresada):
         self.comandoIngresado = False
@@ -37,11 +35,3 @@ class Git():
             self.status()
         if not self.comandoIngresado:
             print("Comando no registrado.")
-
-gitActual = Git(Variables.getRuta())
-
-print("Ingrese la accion a realizar: ")
-accion = input()
-if accion == "":
-    exit()
-gitActual.ejecutarComando(accion)
