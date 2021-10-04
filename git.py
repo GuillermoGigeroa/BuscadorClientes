@@ -3,20 +3,13 @@ import os
 
 comandoIngresado = False
 
-try:
-    nombreCarpeta = sys.argv[1]
-except:
-    print(".")
-
-ruta = "onedrive/documentos/eclipse/"
-
-if nombreCarpeta == "":
-    exit()
+ruta = "C:/Users/guill/OneDrive/Documentos/Eclipse/"
+nombreCarpeta = "BuscadorClientesTigre"
 
 ruta = ruta + nombreCarpeta
 
 try:
-    comando = sys.argv[2]
+    comando = sys.argv[1]
 except:
     comando = "status"
 
