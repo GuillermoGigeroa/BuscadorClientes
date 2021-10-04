@@ -2,11 +2,11 @@ import sys
 import os
 
 comandoIngresado = False
+
 try:
-    nombreCarpeta = sys.argv[2]
+    nombreCarpeta = sys.argv[1]
 except:
-    print("Ingrese el nombre del proyecto: ")
-    nombreCarpeta = input()
+    print(".")
 
 ruta = "onedrive/documentos/eclipse/"
 
@@ -16,7 +16,7 @@ if nombreCarpeta == "":
 ruta = ruta + nombreCarpeta
 
 try:
-    comando = sys.argv[1]
+    comando = sys.argv[2]
 except:
     comando = "status"
 
