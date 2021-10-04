@@ -9,6 +9,19 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 
+/* Modelo de datos: ,
+ * ,"Nombre"
+ * ,"Servicio"
+ * ,"Ip"
+ * ,"Estado"
+ * ,"Plan Internet"
+ * ,"Router"
+ * ,"Dirección"
+ * ,"Barrio/Localidad"
+ * ,"Telefono"
+ * ,"Acción"
+ */
+
 public class Archivo {
 	private TreeSet<Object> listaPersonas;
 	private final String rutaOrigen;
