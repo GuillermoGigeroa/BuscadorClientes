@@ -37,8 +37,9 @@ class Git():
         if not self.comandoIngresado:
             print("Comando no registrado.")
 
+git = Git()
 try:
-    import os
-    print(os.getcwd())
+    import sys
+    git.ejecutarComando(sys.argv[1])
 except:
-    print("Error")
+    git.status()
