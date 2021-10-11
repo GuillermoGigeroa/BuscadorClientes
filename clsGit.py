@@ -1,7 +1,8 @@
 class Git():
-    def __init__(self, rutaIngresada):
+    def __init__(self):
+        import os
         self.comandoIngresado = False
-        self.ruta = rutaIngresada
+        self.ruta = os.getcwd()
 
     def cls(self):
         import os
@@ -35,3 +36,9 @@ class Git():
             self.status()
         if not self.comandoIngresado:
             print("Comando no registrado.")
+
+try:
+    import os
+    print(os.getcwd())
+except:
+    print("Error")
