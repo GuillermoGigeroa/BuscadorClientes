@@ -9,11 +9,9 @@ class Git():
         os.system("clear || cls")
 
     def completo(self):
-        print("Tarea finalizada. Presione enter para continuar.")
+        print("\n\nTarea finalizada. Presione enter para continuar.")
         input()
         self.cls()
-        for i in range(50):
-            print()
 
     def push(self):
         import os
@@ -42,4 +40,5 @@ try:
     import sys
     git.ejecutarComando(sys.argv[1])
 except:
+    print("Comando no valido. Se ejecuta el comando status.")
     git.status()
