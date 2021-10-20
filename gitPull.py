@@ -40,4 +40,3 @@ class Git():
 
 git = Git()
 git.ejecutarComando("pull")
-input()
