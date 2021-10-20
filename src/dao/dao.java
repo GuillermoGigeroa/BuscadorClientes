@@ -1,4 +1,4 @@
-package dominio;
+package dao;
 
 import java.util.TreeSet;
 import java.util.Iterator;
@@ -16,25 +16,25 @@ import java.io.BufferedWriter;
  * ,"Estado"
  * ,"Plan Internet"
  * ,"Router"
- * ,"Dirección"
+ * ,"Direcciï¿½n"
  * ,"Barrio/Localidad"
  * ,"Telefono"
- * ,"Acción"
+ * ,"Acciï¿½n"
  */
 
-public class Archivo {
+public class dao {
 	private TreeSet<Object> listaPersonas;
 	private final String rutaOrigen;
 	private final String rutaDestino;
 
 	// Constructores
-	public Archivo() {
+	public dao() {
 		this.listaPersonas = new TreeSet<Object>();
 		this.rutaOrigen = "Personas.txt";
 		this.rutaDestino = "Resultado.txt";
 	}
 	
-	public Archivo(String rutaOrigen, String rutaDestino) {
+	public dao(String rutaOrigen, String rutaDestino) {
 		this.listaPersonas = new TreeSet<Object>();
 		this.rutaOrigen = rutaOrigen;
 		this.rutaDestino = rutaDestino;
@@ -82,11 +82,11 @@ public class Archivo {
 						} catch (DniInvalido e) {
 							// Aca se puede escribir un mensaje cada vez
 							// que encuentre una persona con el dni mal cargado.
-							// System.out.println("Se encontró un dni mal cargado.");
+							// System.out.println("Se encontrï¿½ un dni mal cargado.");
 						} catch (LineaInvalida e) {
 							// Aca se puede escribir un mensaje cada vez
-							// que encuentre una línea sin el formato solicitado.
-							// System.out.println("Se encontró una línea mal cargada.");
+							// que encuentre una lï¿½nea sin el formato solicitado.
+							// System.out.println("Se encontrï¿½ una lï¿½nea mal cargada.");
 						}
 						*/
 					}

@@ -1,14 +1,12 @@
 package main;
 
-import procesadores.Util;
-import dominio.ClienteEscobar;
+import presentacion.paneles.PanelBuscarClientes;
+import presentacion.ventanas.Ventana;
 
 public class Main {
-
 	public static void main(String[] args) {
-		String linea = ",\"Nombre\",\"Servicio\",\"Ip\",\"Estado\",\"Plan Internet\",\"Router\",\"Dirección\",\"Barrio/Localidad\",\"Telefono\",\"Acción\"";
-		ClienteEscobar cliente = Util.procesarLineaEscobar(linea);
-		System.out.println(cliente);
+		Ventana ventana = new Ventana();
+		ventana.setContentPane(new PanelBuscarClientes());
+		ventana.setVisible(true);
 	}
-
 }
