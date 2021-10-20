@@ -10,18 +10,26 @@ class Git():
 
     def push(self):
         import os
-        os.system("cd && cd "+ self.ruta +" && git add .")
-        os.system("cd && cd "+ self.ruta +" && git commit -m pushConPython")
-        os.system("cd && cd "+ self.ruta +" && git push")
+        os.system("cd "+ self.ruta +" && git add .")
+        os.system("cd "+ self.ruta +" && git commit -m pushConPython")
+        os.system("cd "+ self.ruta +" && git push")
 
     def status(self):
         import os
         os.system("cd "+ self.ruta +" && git status")
 
+    def pull(self):
+        import os
+        os.system("cd "+ self.ruta +" && git pull")
+
     def ejecutarComando(self, comandoRecibido):
         if comandoRecibido.lower() == "push":
             self.comandoIngresado = True
             self.push()
+            self.completo()
+        if comandoRecibido.lower() == "pull":
+            self.comandoIngresado = True
+            self.pull()
             self.completo()
         if comandoRecibido.lower() == "status" and not self.comandoIngresado:
             self.comandoIngresado = True
@@ -29,11 +37,3 @@ class Git():
             self.completo()
         if not self.comandoIngresado:
             print("Comando no registrado.")
-
-git = Git()
-try:
-    import sys
-    git.ejecutarComando(sys.argv[1])
-except:
-    print("Comando no valido. Se ejecuta el comando status.")
-    git.status()
