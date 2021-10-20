@@ -12,7 +12,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 200, 550, 300);
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(panel);
