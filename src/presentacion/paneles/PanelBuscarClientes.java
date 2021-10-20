@@ -15,6 +15,8 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanelBuscarClientes extends JPanel {
 
@@ -93,6 +95,11 @@ public class PanelBuscarClientes extends JPanel {
 		txtNumero.setColumns(10);
 
 		btnBuscarPorNumero = new JButton("Buscar por numero");
+		btnBuscarPorNumero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				accionBotonNumero();
+			}
+		});
 		btnBuscarPorNumero.setFont(new Font("Century Gothic", Font.PLAIN, 13));
 		btnBuscarPorNumero.addMouseListener(new MouseAdapter() {
 			@Override
@@ -149,6 +156,11 @@ public class PanelBuscarClientes extends JPanel {
 		txtNombre.setColumns(10);
 
 		btnBuscarPorNombre = new JButton("Buscar por nombre");
+		btnBuscarPorNombre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				accionBotonNombre();
+			}
+		});
 		btnBuscarPorNombre.setFont(new Font("Century Gothic", Font.PLAIN, 13));
 		btnBuscarPorNombre.addMouseListener(new MouseAdapter() {
 			@Override
@@ -206,6 +218,11 @@ public class PanelBuscarClientes extends JPanel {
 		txtDomicilio.setColumns(10);
 
 		btnBuscarPorDomicilio = new JButton("Buscar por domicilio");
+		btnBuscarPorDomicilio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				accionBotonDomicilio();
+			}
+		});
 		btnBuscarPorDomicilio.setFont(new Font("Century Gothic", Font.PLAIN, 13));
 		btnBuscarPorDomicilio.addMouseListener(new MouseAdapter() {
 			@Override
@@ -225,5 +242,17 @@ public class PanelBuscarClientes extends JPanel {
 		gbc_btnBuscarPorDomicilio.gridy = 5;
 		add(btnBuscarPorDomicilio, gbc_btnBuscarPorDomicilio);
 
+	}
+
+	protected void accionBotonDomicilio() {
+		// TODO Auto-generated method stub
+	}
+
+	protected void accionBotonNombre() {
+		// TODO Auto-generated method stub
+	}
+
+	protected void accionBotonNumero() {
+		// TODO Auto-generated method stub
 	}
 }
