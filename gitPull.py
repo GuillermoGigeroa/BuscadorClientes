@@ -38,5 +38,7 @@ class Git():
         if not self.comandoIngresado:
             print("Comando no registrado.")
 
+print("git pull ejecutado")
+print()
 git = Git()
 git.ejecutarComando("pull")
