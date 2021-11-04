@@ -1,5 +1,5 @@
 package negocio;
 
-public interface ImportadorTigre {
+public interface Importador {
 
 }

@@ -1,45 +1,30 @@
 package dao;
 
-import java.util.TreeSet;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
-import java.io.BufferedWriter;
 import entidad.Cliente;
 import utilidades.Util;
 
-/* Modelo de datos:
- * 
- */
-
-public class dao {
-	private TreeSet<Cliente> listaPersonas;
-	private final String rutaOrigen;
-	private final String rutaDestino;
+public class Dao {
+	/* 
+	 * Modelo de datos: Codigo,RazonSocial,NombreFantasia,Domicilio
+	 */
+	private final String ruta;
+	private ArrayList<Cliente> listaPersonas;
 
 	// Constructores
-	public dao() {
-		this.listaPersonas = new TreeSet<Cliente>();
-		this.rutaOrigen = "Personas.txt";
-		this.rutaDestino = "Resultado.txt";
-	}
-	
-	public dao(String rutaOrigen, String rutaDestino) {
-		this.listaPersonas = new TreeSet<Cliente>();
-		this.rutaOrigen = rutaOrigen;
-		this.rutaDestino = rutaDestino;
+	public Dao(String ruta) {
+		this.listaPersonas = new ArrayList<Cliente>();
+		this.ruta = ruta;
 	}
 
 	// Metodos de la clase
 	public Boolean verificar(String ruta) {
-		Boolean existe = this.existe(ruta);
-		if (!existe) {
-			return this.crearAchivo(ruta);
-		}
-		return existe;
+		return this.existe(ruta);
 	}
 
 	public Boolean existe(String ruta) {
@@ -47,21 +32,8 @@ public class dao {
 		return archivo.exists();
 	}
 
-	public Boolean crearAchivo(String ruta) {
-		FileWriter fileWriter;
-		try {
-			fileWriter = new FileWriter(ruta, true);
-			fileWriter.write("");
-			fileWriter.close();
-			return true;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
 	public void leerLineas() {
-		String ruta = this.rutaOrigen;
+		String ruta = this.ruta;
 		if (verificar(ruta)) {
 			try {
 				FileReader fileReader = new FileReader(ruta);
@@ -84,45 +56,17 @@ public class dao {
 		}
 	}
 
-	public void exportarPersona(Object persona) {
-		String ruta = this.rutaDestino;
-		if (verificar(ruta)) {
-			try {
-				FileWriter fileWriter = new FileWriter(ruta, true);
-				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-//				bufferedWriter.write(persona.exportarString());
-				bufferedWriter.close();
-				fileWriter.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else {
-			System.out.println("Archivo no pudo ser creado.");
-		}
-	}
-	
-	public void exportarPersonas(TreeSet<Object> lista) {
-		Iterator<Object> listaPersonas = lista.iterator();
-		while (listaPersonas.hasNext()) {
-			this.exportarPersona(listaPersonas.next());
-		}
-	}
-
 	// Getters y Setters
-	protected TreeSet<Cliente> getListaPersonas() {
+	protected ArrayList<Cliente> getListaPersonas() {
 		return listaPersonas;
 	}
 	
-	protected void setListaPersonas(TreeSet<Cliente> lista) {
+	protected void setListaPersonas(ArrayList<Cliente> lista) {
 		this.listaPersonas = lista;
 	}
 
 	protected String getRutaOrigen() {
-		return rutaOrigen;
-	}
-
-	protected String getRutaDestino() {
-		return rutaDestino;
+		return ruta;
 	}
 
 }
