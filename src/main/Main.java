@@ -1,15 +1,12 @@
 package main;
 
-import dao.Dao;
-
-//import presentacion.*;
+import presentacion.controlador.Controlador;
+import presentacion.ventanas.*;
+import presentacion.paneles.*;
 
 public class Main {
 	public static void main(String[] args) {
-//		Ventana ventana = new Ventana();
-//		ventana.setContentPane(new PanelBuscarClientes());
-//		ventana.setVisible(true);
-		Dao dao = new Dao("ClientesTigre.csv");
-		dao.leerLineas();
+		Controlador controlador = new Controlador(new Ventana(), new PanelBuscarClientes(), new PanelEncontrados());
+		controlador.iniciarVentana();
 	}
 }

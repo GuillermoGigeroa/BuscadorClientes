@@ -1,32 +1,31 @@
 package dao;
 
+import entidad.*;
+import utilidades.Util;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.FileWriter;
-import entidad.Cliente;
-import utilidades.Util;
 
-public class Dao {
+public class DaoTigre{
 	/* 
 	 * Modelo de datos: Codigo,RazonSocial,NombreFantasia,Domicilio
 	 */
 	private final String ruta;
-	private ArrayList<Cliente> listaPersonas;
+	private ArrayList<ClienteTigre> listaPersonas;
 
 	// Constructores
-	public Dao(String ruta) {
-		this.listaPersonas = new ArrayList<Cliente>();
+	public DaoTigre() {
+		this.listaPersonas = new ArrayList<ClienteTigre>();
+		this.ruta = "ClientesTigre.csv";
+	}
+	
+	public DaoTigre(String ruta) {
+		this.listaPersonas = new ArrayList<ClienteTigre>();
 		this.ruta = ruta;
 	}
 
 	// Metodos de la clase
-	public Boolean verificar(String ruta) {
-		return this.existe(ruta);
-	}
-
 	public Boolean existe(String ruta) {
 		File archivo = new File(ruta);
 		return archivo.exists();
@@ -34,14 +33,14 @@ public class Dao {
 
 	public void leerLineas() {
 		String ruta = this.ruta;
-		if (verificar(ruta)) {
+		if (existe(ruta)) {
 			try {
 				FileReader fileReader = new FileReader(ruta);
 				BufferedReader bufferedReader = new BufferedReader(fileReader);
 				String linea = "";
 				while (linea != null) {
 					if (linea != "") {
-//						this.listaPersonas.add(Util.convertirEnPersona(linea));
+						this.listaPersonas.add(Util.obtenerClienteTigre(linea));
 					}
 					linea = bufferedReader.readLine();
 				}
@@ -52,20 +51,16 @@ public class Dao {
 				Util.mensaje(e.getMessage());
 			}
 		} else {
-			System.out.println("Archivo no pudo ser creado.");
+			System.out.println("Archivo no encontrado.");
 		}
 	}
 
 	// Getters y Setters
-	protected ArrayList<Cliente> getListaPersonas() {
+	public ArrayList<ClienteTigre> getListaClientes() {
 		return listaPersonas;
 	}
-	
-	protected void setListaPersonas(ArrayList<Cliente> lista) {
-		this.listaPersonas = lista;
-	}
 
-	protected String getRutaOrigen() {
+	public String getRuta() {
 		return ruta;
 	}
 
