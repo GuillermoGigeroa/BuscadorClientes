@@ -8,34 +8,27 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+import entidad.Cliente;
+import utilidades.Util;
 
-/* Modelo de datos: ,
- * ,"Nombre"
- * ,"Servicio"
- * ,"Ip"
- * ,"Estado"
- * ,"Plan Internet"
- * ,"Router"
- * ,"Direcci�n"
- * ,"Barrio/Localidad"
- * ,"Telefono"
- * ,"Acci�n"
+/* Modelo de datos:
+ * 
  */
 
 public class dao {
-	private TreeSet<Object> listaPersonas;
+	private TreeSet<Cliente> listaPersonas;
 	private final String rutaOrigen;
 	private final String rutaDestino;
 
 	// Constructores
 	public dao() {
-		this.listaPersonas = new TreeSet<Object>();
+		this.listaPersonas = new TreeSet<Cliente>();
 		this.rutaOrigen = "Personas.txt";
 		this.rutaDestino = "Resultado.txt";
 	}
 	
 	public dao(String rutaOrigen, String rutaDestino) {
-		this.listaPersonas = new TreeSet<Object>();
+		this.listaPersonas = new TreeSet<Cliente>();
 		this.rutaOrigen = rutaOrigen;
 		this.rutaDestino = rutaDestino;
 	}
@@ -76,26 +69,15 @@ public class dao {
 				String linea = "";
 				while (linea != null) {
 					if (linea != "") {
-						/*
-						try {
-							this.listaPersonas.add(Util.convertirEnPersona(linea));
-						} catch (DniInvalido e) {
-							// Aca se puede escribir un mensaje cada vez
-							// que encuentre una persona con el dni mal cargado.
-							// System.out.println("Se encontr� un dni mal cargado.");
-						} catch (LineaInvalida e) {
-							// Aca se puede escribir un mensaje cada vez
-							// que encuentre una l�nea sin el formato solicitado.
-							// System.out.println("Se encontr� una l�nea mal cargada.");
-						}
-						*/
+//						this.listaPersonas.add(Util.convertirEnPersona(linea));
 					}
 					linea = bufferedReader.readLine();
 				}
 				bufferedReader.close();
 				fileReader.close();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
+				Util.mensaje(e.getMessage());
 			}
 		} else {
 			System.out.println("Archivo no pudo ser creado.");
@@ -127,11 +109,11 @@ public class dao {
 	}
 
 	// Getters y Setters
-	protected TreeSet<Object> getListaPersonas() {
+	protected TreeSet<Cliente> getListaPersonas() {
 		return listaPersonas;
 	}
 	
-	protected void setListaPersonas(TreeSet<Object> lista) {
+	protected void setListaPersonas(TreeSet<Cliente> lista) {
 		this.listaPersonas = lista;
 	}
 
